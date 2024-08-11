@@ -21,7 +21,7 @@ const Banner = () => {
         </p>
         <button className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
           <FaSearch className="h-6 w-6" />
-          <span className="text-lg font-medium">Field Property</span>
+          <span className="text-lg font-medium">Find Property</span>
         </button>
       </div>
     </div>
