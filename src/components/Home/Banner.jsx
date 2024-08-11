@@ -1,5 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import BannerImage from "../../assets/banner.jpeg";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -20,10 +21,12 @@ const Banner = () => {
         <p className="text-base font-medium">
           Seamlessly connecting you to the heartbear of India &apos;s prime properties
         </p>
-        <button className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
-          <FaSearch className="h-6 w-6" />
-          <span className="text-lg font-medium">Find Property</span>
-        </button>
+        <Link to={"/search"}>
+          <button className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
+            <FaSearch className="h-6 w-6" />
+            <span className="text-lg font-medium">Find Property</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

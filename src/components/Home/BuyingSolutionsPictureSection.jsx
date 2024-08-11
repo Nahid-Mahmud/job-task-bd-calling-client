@@ -2,6 +2,7 @@ import { FaCirclePlay } from "react-icons/fa6";
 import ImageOne from "../../assets/pic1.jpg";
 import ImageTwo from "../../assets/pic2.jpg";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const BuyingSolutionsPictureSection = () => {
   return (
@@ -35,10 +36,12 @@ const BuyingSolutionsPictureSection = () => {
               at its layout.
             </p>
           </div>
-          <button className="bg-blue-50 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
-            <FaSearch className="h-6 w-6" />
-            <span className="text-lg ">Find Property</span>
-          </button>
+          <Link to={"/search"}>
+            <button className="bg-blue-50 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
+              <FaSearch className="h-6 w-6" />
+              <span className="text-lg ">Find Property</span>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

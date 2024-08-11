@@ -3,6 +3,7 @@ import MainLayout from "../Layouts/MainLayout";
 import Home from "../components/Home/Home";
 import About from "../components/About/About";
 import SignIn from "../components/SignIn/SignIn";
+import SearchPage from "../components/Search/SearchPage";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn />,
+      },
+      {
+        path: "/search",
+        element: <SearchPage />,
       },
     ],
   },
