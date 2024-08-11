@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 
 const BuyingSolutionMid = () => {
   return (
-    <div className="flex flex-row-reverse mt-32 mb-96 gap-48 justify-between  ">
+    <div className="flex flex-row-reverse mt-52 mb-80 gap-48 justify-between  ">
       <div className="flex-1 ">
         <div className="relative">
           <img src={ImageTwo} className="h-[240px] w-[452px]  ml-36 rounded-lg" alt="image of a room" />
@@ -31,7 +31,8 @@ const BuyingSolutionMid = () => {
               at its layout.
             </p>
           </div>
-          <button className="bg-blue-50 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
+
+          <button className=" rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
             <FaSearch className="h-6 w-6" />
             <span className="text-lg ">Find Property</span>
           </button>
