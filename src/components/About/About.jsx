@@ -4,6 +4,7 @@ import OurTeam from "./OurTeam";
 import EfficientTransparentHomeBuyingSolution from "./EfficientTransparentHomeBuyingSolution";
 import { ProfileSlider } from "./ProfileSlider";
 import MeetTheTeam from "./MeetTheTeam";
+import Testimonials from "./Testimonials";
 
 const About = () => {
   return (
@@ -27,7 +28,13 @@ const About = () => {
         <ProfileSlider />
       </div>
 
-      <MeetTheTeam />
+      <div key={10}>
+        <MeetTheTeam />
+      </div>
+
+      <div key={20}>
+        <Testimonials />
+      </div>
     </div>
   );
 };

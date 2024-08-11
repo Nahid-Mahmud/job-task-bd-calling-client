@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { IoPlaySkipForwardCircle, IoPlaySkipBackCircleSharp } from "react-icons/io5";
-import "swiper/css";
+
 
 import ProfileOne from "../../assets/profiles/profile-1.jpg";
 import ProfileTwo from "../../assets/profiles/profile-2.jpg";
