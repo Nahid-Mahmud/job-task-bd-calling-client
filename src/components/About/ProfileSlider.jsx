@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { IoPlaySkipForwardCircle, IoPlaySkipBackCircleSharp } from "react-icons/io5";
@@ -15,7 +14,7 @@ const images = [ProfileOne, ProfileTwo, ProfileThree, ProfileFour, ProfileFive, 
 
 export const ProfileSlider = () => {
   return (
-    <div className="relative overflow-hidden container mx-auto">
+    <div className="relative overflow-hidden container px-5 mx-auto mb-20">
       <Swiper
         slidesPerView={3} // Number of slides to show at once
         spaceBetween={10} // Space between slides
@@ -33,10 +32,10 @@ export const ProfileSlider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="absolute top-1/2 transform -translate-y-1/2 right-4 text-5xl text-blue-600 cursor-pointer z-10 swiper-button-next">
+      <div className="absolute  -right-1 top-1/2 text-5xl text-blue-600 cursor-pointer z-10 swiper-button-next">
         <IoPlaySkipForwardCircle />
       </div>
-      <div className="absolute top-1/2 transform -translate-y-1/2 left-4 text-5xl text-blue-600 cursor-pointer z-10 swiper-button-prev">
+      <div className="absolute top-1/2  -left-1 text-5xl text-blue-600 cursor-pointer z-10 swiper-button-prev">
         <IoPlaySkipBackCircleSharp />
       </div>
     </div>
