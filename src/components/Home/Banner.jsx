@@ -1,11 +1,12 @@
 import { FaSearch } from "react-icons/fa";
+import BannerImage from "../../assets/banner.jpeg";
 
 const Banner = () => {
   return (
     <div
       className="banner relative h-64 md:h-80 lg:h-[34rem] w-full bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1647522891418-6fc021378011?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+        backgroundImage: `url(${BannerImage})`,
       }}
     >
       {/* Gradient Overlay */}

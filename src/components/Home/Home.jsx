@@ -15,7 +15,7 @@ const Home = () => {
         <BuyingSolutionsPictureSection />
         <OtherServices />
       </div>
-    </div>
+    </div> 
   );
 };
 
