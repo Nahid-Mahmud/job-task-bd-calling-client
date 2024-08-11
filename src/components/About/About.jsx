@@ -3,6 +3,7 @@ import AnalyticsSection from "../shared/AnalyticsSection";
 import OurTeam from "./OurTeam";
 import EfficientTransparentHomeBuyingSolution from "./EfficientTransparentHomeBuyingSolution";
 import { ProfileSlider } from "./ProfileSlider";
+import MeetTheTeam from "./MeetTheTeam";
 
 const About = () => {
   return (
@@ -25,6 +26,8 @@ const About = () => {
       <div>
         <ProfileSlider />
       </div>
+
+      <MeetTheTeam />
     </div>
   );
 };
