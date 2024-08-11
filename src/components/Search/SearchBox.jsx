@@ -88,7 +88,7 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="max-w-7xl h- mx-auto shadow-lg p-10 b" ref={searchRef}>
+    <div className="w-[80rem] h- mx-auto shadow-lg p-10 bg-white rounded-md" ref={searchRef}>
       <div className="flex border-b-blue-50 border-b my-10 gap-10 p-1">
         <p className="text-base leading-4 font-medium text-blue-500 underline">Buy</p>
         <p className="text-base leading-4 font-medium text-[#4B5563]">Rent</p>
@@ -103,7 +103,7 @@ const SearchBox = () => {
           placeholder="Search Properties"
           value={formData?.searchQuery}
           onChange={handleChange}
-          className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-12"
         />
 
         {isDropdownOpen && suggestions.length > 0 && (
@@ -134,7 +134,7 @@ const SearchBox = () => {
               name="location"
               value={formData?.location}
               onChange={handleChange}
-              className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-100 h-16"
             >
               <option value="">Your Location</option>
 
@@ -158,7 +158,7 @@ const SearchBox = () => {
               name="propertyType"
               value={formData?.propertyType}
               onChange={handleChange}
-              className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500  bg-blue-100 h-16"
             >
               <option value="">Property Type</option>
               {propertyTypes?.map((type, index) => (
@@ -179,7 +179,7 @@ const SearchBox = () => {
               placeholder="Budget 100k-999k"
               value={formData?.budget}
               onChange={handleChange}
-              className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500  bg-blue-100 h-16"
             />
           </div>
         </div>
