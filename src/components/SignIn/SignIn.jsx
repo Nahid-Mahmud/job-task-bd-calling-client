@@ -31,8 +31,6 @@ const SignIn = () => {
   const handleLogin = (event) => {
     event.preventDefault();
 
-    setUserLoading(true);
-
     const { email, password } = inputFields;
 
     // check for empty fields
@@ -45,6 +43,7 @@ const SignIn = () => {
     }
 
     // Add login logic here
+    setUserLoading(true);
     signinUser(email, password)
       .then((currentUser) => {
         setUserLoading(false);

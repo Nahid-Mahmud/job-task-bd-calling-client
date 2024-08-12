@@ -90,7 +90,7 @@ const Testimonials = () => {
               <p className="text-gray-600 mb-2">{testimonial.review}</p>
               <div className="flex flex-col items-center justify-center">
                 <img
-                  src={testimonial.profileImage}
+                  src="https://i.pravatar.cc/300"
                   alt={testimonial.name}
                   className="w-16 h-16 rounded-full object-cover"
                 />

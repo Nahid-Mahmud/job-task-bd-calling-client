@@ -155,11 +155,7 @@ const Signup = () => {
               value={inputFields.password}
               onChange={(e) => setInputFields({ ...inputFields, password: e.target.value })}
             />
-            <div className="flex justify-end text-xs">
-              <a rel="noopener noreferrer" href="#">
-                Forgot Password?
-              </a>
-            </div>
+
             {
               // Show and hide password
               !showPassword ? (

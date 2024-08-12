@@ -4,20 +4,25 @@ import { useNavigate } from "react-router-dom";
 import Spinner from "./spinner/Spinner";
 import { usePublicApi } from "../../hooks/usePublicApi";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 const SigninWithGoogle = ({ children, toastMessage }) => {
   const publicApi = usePublicApi();
-  const { signinWithGoogle, googleLoading, setGoogleLoading } = useAuth();
+  const { signinWithGoogle } = useAuth();
+
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   const navigate = useNavigate();
 
   // google signin
 
   const handleGoogleSignin = () => {
+    setGoogleLoading(true);
     signinWithGoogle()
       .then((user) => {
         // console.log("user", user);
         if (user) {
+          setGoogleLoading(false);
           publicApi
             .post("/users", {
               email: user?.user?.email,
@@ -30,6 +35,7 @@ const SigninWithGoogle = ({ children, toastMessage }) => {
             })
             .catch((err) => {
               // console.log(err);
+              setGoogleLoading(false);
             });
 
           navigate("/");
