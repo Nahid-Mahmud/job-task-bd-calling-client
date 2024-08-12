@@ -27,7 +27,7 @@ const Nav = () => {
   }, [isOpen]);
 
   return (
-    <div className="bg-blue-50 relative">
+    <div className="bg-blue-50 relative shadow-lg   ">
       <nav className="flex lg:max-w-7xl px-5 xl:px-0 mx-auto items-center justify-between">
         <div className="cursor-pointer lg:hidden">
           <FaBars className="text-3xl" onClick={toggleSidebar} />
