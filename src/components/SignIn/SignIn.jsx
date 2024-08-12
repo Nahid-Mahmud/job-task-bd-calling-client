@@ -37,7 +37,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="h-screen items-center pt-20 flex flex-wrap flex-row-reverse justify-center gap-10">
+    <div className="h-screen items-center flex flex-wrap flex-row-reverse justify-center gap-10">
       {/* lttie animation */}
 
       <div className="w-full  border  max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
