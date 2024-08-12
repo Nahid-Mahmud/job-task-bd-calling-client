@@ -13,10 +13,41 @@ import { GrCompliance, GrHostMaintenance, GrServices } from "react-icons/gr";
 import { LiaIntercom } from "react-icons/lia";
 import { TbMoodKid, TbTrack } from "react-icons/tb";
 import { SiFuturelearn } from "react-icons/si";
+import OtherServices from "../Home/OtherServices";
+import PopularProductSlider from "../Search/PopularProductSlider";
+import { properties } from "../../data/Propertydata";
 const images = [
   "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+];
+
+const popularProperties = properties?.filter((property) => property?.tag === "Popular");
+
+const features = [
+  { icon: <IoMdBatteryCharging />, text: "Power Back Up" },
+  { icon: <GiLift />, text: "Lift" },
+  { icon: <PiClub />, text: "Club House" },
+  { icon: <MdSportsGymnastics />, text: "Gymnasium" },
+  { icon: <PiParkLight />, text: "Park" },
+  { icon: <CiParking1 />, text: "Reserved parking" },
+  { icon: <MdSecurity />, text: "Security" },
+  { icon: <FaHandHoldingWater />, text: "Water Storage" },
+  { icon: <CgTerrain />, text: "Private Terrace" },
+  { icon: <GrCompliance />, text: "Vaastu Complient" },
+  { icon: <GrServices />, text: "Service/Goods Lift" },
+  { icon: <GiInvisible />, text: "Visitor Parking" },
+  { icon: <LiaIntercom />, text: "Intercom Facility" },
+  { icon: <GrHostMaintenance />, text: "Maintenance Staff" },
+  { icon: <GiNuclearWaste />, text: "Waste Disposal" },
+  { icon: <MdOutlineLocalLaundryService />, text: "Laundry Service" },
+  { icon: <FaWifi />, text: "Internet/ Wi-Fi Connectivity" },
+  { icon: <PiTelevisionDuotone />, text: "DTH Television Facility" },
+  { icon: <MdGasMeter />, text: "Piped Gas" },
+  { icon: <TbTrack />, text: "Jogging and Strolling Track" },
+  { icon: <FaTableTennis />, text: "Outdoor Tennis Courts" },
+  { icon: <SiFuturelearn />, text: "Early Learning Care" },
+  { icon: <TbMoodKid />, text: "Kids Play Area" },
 ];
 
 const ProductDetails = () => {
@@ -131,83 +162,169 @@ const ProductDetails = () => {
 
       {/* amenities section */}
 
-      <div className="p-10 bg-slate-50">
+      <div className="p-10 bg-slate-50 border rounded-md ">
         <p className="my-10">Amenities</p>
-        <div className="grid grid-cols-4 gap-10">
-          <div>
-            <IoMdBatteryCharging />
+        {/* <div className="grid grid-cols-4 gap-10">
+          <div className="flex items-center ">
+            <div>
+              <IoMdBatteryCharging />
+            </div>
             <p>Power Back Up</p>
           </div>
           <div>
-            <GiLift /> <p>Lift</p>
+            <div>
+              <GiLift />
+            </div>{" "}
+            <p>Lift</p>
           </div>
           <div>
-            <PiClub /> <p>Club House</p>
+            <div>
+              <PiClub />
+            </div>
+            <p>Club House</p>
           </div>
           <div>
-            <MdSportsGymnastics /> <p>Gymnasium</p>
+            <div>
+              <MdSportsGymnastics />
+            </div>{" "}
+            <p>Gymnasium</p>
           </div>
           <div>
-            <PiParkLight /> <p>Park</p>
+            <div>
+              <PiParkLight />
+            </div>{" "}
+            <p>Park</p>
           </div>
           <div>
-            <CiParking1 />
+            <div>
+              <CiParking1 />
+            </div>
             <p>Reserved parking</p>
           </div>
           <div>
-            <MdSecurity /> <p>Security</p>
+            <div>
+              <MdSecurity />{" "}
+            </div>
+            <p>Security</p>
           </div>
           <div>
-            <FaHandHoldingWater /> <p>Water Storage</p>
+            <div>
+              <FaHandHoldingWater />
+            </div>{" "}
+            <p>Water Storage</p>
           </div>
           <div>
-            <CgTerrain />
+            <div>
+              <CgTerrain />
+            </div>
             <p>Private Terrace</p>
           </div>
           <div>
-            <GrCompliance /> <p>Vaastu Complient</p>
+            <div>
+              <GrCompliance />
+            </div>{" "}
+            <p>Vaastu Complient</p>
           </div>
           <div>
-            <GrServices />
+            <div>
+              <GrServices />
+            </div>
             <p>Service/Goods Lift</p>
           </div>
           <div>
-            <GiInvisible /> <p>Visitor Parking</p>
+            <div>
+              <GiInvisible />
+            </div>{" "}
+            <p>Visitor Parking</p>
           </div>
           <div>
-            <LiaIntercom /> <p>Intercom Facility</p>
+            <div>
+              <LiaIntercom />{" "}
+            </div>
+            <p>Intercom Facility</p>
           </div>
           <div>
-            <GrHostMaintenance /> <p>Maintenance Staff</p>
+            <div>
+              <GrHostMaintenance />{" "}
+            </div>
+            <p>Maintenance Staff</p>
           </div>
           <div>
-            <GiNuclearWaste /> <p>Waste Disposal</p>
+            <div>
+              <GiNuclearWaste />
+            </div>{" "}
+            <p>Waste Disposal</p>
           </div>
           <div>
-            <MdOutlineLocalLaundryService /> <p>Laundry Service</p>
+            <div>
+              <MdOutlineLocalLaundryService />{" "}
+            </div>
+            <p>Laundry Service</p>
           </div>
           <div>
-            <FaWifi /> <p>Internet/ Wi-Fi Connectivity</p>
+            <div>
+              <FaWifi />
+            </div>{" "}
+            <p>Internet/ Wi-Fi Connectivity</p>
           </div>
           <div>
-            <PiTelevisionDuotone /> <p>DTH Televisiton Facility</p>
+            <div>
+              <PiTelevisionDuotone />{" "}
+            </div>
+            <p>DTH Televisiton Facility</p>
           </div>
           <div>
-            <MdGasMeter /> <p>Piped Gas</p>
+            <div>
+              <MdGasMeter />{" "}
+            </div>
+            <p>Piped Gas</p>
           </div>
           <div>
-            <TbTrack /> <p>Jogging and Strolling Track</p>
+            <div>
+              <TbTrack />
+            </div>{" "}
+            <p>Jogging and Strolling Track</p>
           </div>
           <div>
-            <FaTableTennis /> <p>Outdoor Tennis Courts</p>
+            <div>
+              <FaTableTennis />{" "}
+            </div>
+            <p>Outdoor Tennis Courts</p>
           </div>
           <div>
-            <SiFuturelearn /> <p>Early Learning Care</p>
+            <div>
+              <SiFuturelearn />
+            </div>{" "}
+            <p>Early Learning Care</p>
           </div>
           <div>
-            <TbMoodKid /> <p>Kids Paly Area</p>
+            <div>
+              <TbMoodKid />
+            </div>{" "}
+            <p>Kids Paly Area</p>
           </div>
+        </div> */}
+        <div className="grid grid-cols-4 gap-10 ">
+          {features.map((feature, index) => (
+            <div className="flex gap-2 items-center" key={index}>
+              <div className="h-12 w-12 flex items-center justify-center bg-white">
+                <span className="text-2xl">{feature?.icon}</span>
+              </div>
+              <p className="text-base font-medium">{feature?.text}</p>
+            </div>
+          ))}
         </div>
+      </div>
+
+      {/* services section */}
+
+      <div className="my-20">
+        <OtherServices />
+      </div>
+
+      {/* Properties slide */}
+      <div>
+        <PopularProductSlider data={popularProperties} />
       </div>
     </div>
   );

@@ -13,9 +13,11 @@ const Home = () => {
         <BuyingSolutionsPictureSection />
         <BuyingSolutionMid />
         <BuyingSolutionsPictureSection />
-        <OtherServices />
+        <div className="mt-80 mb-20">
+          <OtherServices />
+        </div>
       </div>
-    </div> 
+    </div>
   );
 };
 

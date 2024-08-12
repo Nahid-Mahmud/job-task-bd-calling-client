@@ -26,7 +26,7 @@ const PopularProductSlider = ({ data }) => {
               <img src={property?.images[random]} className="w-full h-[200px]" />
               <div className="p-5">
                 <div className="flex border-b mb-5  items-center justify-between mt-5   ">
-                  <p className="bg-blue-100 px-3 py-1 text-">{property?.propertyType}</p>
+                  <p className="bg-blue-100 mb-1 px-3 py-1 text-">{property?.propertyType}</p>
                   <div className="flex gap-2 items-center justify-start">
                     <div className="h-2 w-2 bg-orange-500 "></div>
                     <p> {property?.transactionType} </p>

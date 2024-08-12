@@ -3,7 +3,7 @@ import ServicesCard from "./ServicesCard";
 
 const OtherServices = () => {
   return (
-    <div className="mt-80 mb-20">
+    <div className="">
       <p className="text-center font-bold text-5xl text-black">Other Services</p>
 
       <div className="w-full flex gap-10">
