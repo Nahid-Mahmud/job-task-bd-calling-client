@@ -16,6 +16,9 @@ import { SiFuturelearn } from "react-icons/si";
 import OtherServices from "../Home/OtherServices";
 import PopularProductSlider from "../Search/PopularProductSlider";
 import { properties } from "../../data/Propertydata";
+import { useParams } from "react-router-dom";
+import { usePublicApi } from "../../hooks/usePublicApi";
+import { useQuery } from "@tanstack/react-query";
 const images = [
   "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -51,21 +54,47 @@ const features = [
 ];
 
 const ProductDetails = () => {
-  // state for selected image index
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const api = usePublicApi();
+  const { id } = useParams();
+
+  // get product details
+
+  const {
+    data: productDetails = {},
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["productDetails", id],
+    queryFn: () => api.get(`products/${id}`).then((res) => res.data),
+  });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error...</div>;
+  }
+
+  console.log(id);
+  // state for selected image index
+
   return (
     <div className="container  mx-auto mt-16">
       <div className="flex flex-col  ">
         <div className="flex justify-between w-full">
-          <h1 className="font-semibold text-black text-lg leading-6">Name of the property</h1>
-          <p className="flex items-center gap-2">
+          <h1 className="font-semibold text-black text-lg leading-6"> {productDetails?.data?.name} </h1>
+          <div className="flex items-center gap-2">
             {" "}
-            <p className="text-2xl leading-7 font-bold">$3652</p>
-          </p>
+            <p className="text-2xl leading-7 font-bold">${productDetails?.data?.price}K</p>
+          </div>
         </div>
         <div className="flex items-center justify-start gap-2">
           <FaLocationDot className="text-2xl text-orange-500" />
-          <p className="text-base font-normal text-[#606060]">Location of the property</p>
+          <p className="text-base font-normal text-[#606060]">
+            {productDetails?.data?.place?.area} , {productDetails?.data?.place?.city}{" "}
+          </p>
         </div>
       </div>
       <div className="flex gap-10">
@@ -79,7 +108,7 @@ const ProductDetails = () => {
           <div className="w-full">
             <img className="mb-2" src={images[selectedImageIndex]} alt="" />
             <div className="flex gap-2 w-full ">
-              {images?.map((image, index) => (
+              {productDetails?.data?.images?.map((image, index) => (
                 <img
                   src={image}
                   onClick={() => setSelectedImageIndex(index)}
@@ -97,11 +126,11 @@ const ProductDetails = () => {
             <div className="grid grid-cols-4 p-3 bg-white rounded border-b-gray-400 border-b-2">
               <div className="flex items-center gap-3">
                 <FaBed className="text-2xl font-semibold" />
-                <p className="text-xl text-[#303030]">3 Beds</p>
+                <p className="text-xl text-[#303030]">{productDetails?.data?.beds} Beds</p>
               </div>
               <div className="flex items-center gap-3">
                 <FaBath className="text-2xl font-semibold" />
-                <p className="text-xl text-[#303030]">2 Baths</p>
+                <p className="text-xl text-[#303030]">{productDetails?.data?.bath} Baths</p>
               </div>
               <div className="flex items-center gap-3">
                 <GiFurnace className="text-2xl font-semibold" />
@@ -111,34 +140,36 @@ const ProductDetails = () => {
             <div className="mt-5 grid grid-cols-4">
               <div className="space-y-2">
                 <p className="text-[#5C5C5C]">Carpet Area</p>
-                <p className="text-base font-medium">2000 sqft</p>
-                <p className="text-sm text-[#535353]"> $255/sqft </p>
+                <p className="text-base font-medium">{productDetails?.data?.carpetArea}t</p>
               </div>
               <div>
                 <p className="text-[#5C5C5C]">Floor</p>
-                <p className="text-base font-medium">Second Floor</p>
+                <p className="text-base font-medium">{productDetails?.data?.floor} </p>
               </div>
               <div>
                 <p className="text-[#5C5C5C]">Transction Type</p>
-                <p className="text-base font-medium">Ready to move</p>
+                <p className="text-base font-medium">{productDetails?.data?.transactionType}</p>
               </div>
               <div>
                 <p className="text-[#5C5C5C]">Lift</p>
-                <p className="text-base font-medium">1</p>
+                <p className="text-base font-medium">{productDetails?.data?.lift}</p>
               </div>
             </div>
             <div className="mt-5 grid grid-cols-4">
               <div className="space-y-2">
                 <p className="text-[#5C5C5C]">Facing</p>
-                <p className="text-base font-medium">North - East</p>
+                <p className="text-base font-medium">{productDetails?.data?.facing}</p>
               </div>
               <div>
                 <p className="text-[#5C5C5C]">Additional rooms</p>
-                <p className="text-base font-medium">1 servent Room & 1 guest room</p>
+                <p className="text-base font-medium">
+                  Servent: {productDetails?.data?.additionalRoom?.servent} , Guest:{"  "}
+                  {productDetails?.data?.additionalRoom?.guest}
+                </p>
               </div>
               <div>
                 <p className="text-[#5C5C5C]">Age of Constransction </p>
-                <p className="text-base font-medium">New Constransction</p>
+                <p className="text-base font-medium">{productDetails?.data?.ageOfConstruction}</p>
               </div>
             </div>
           </div>
@@ -323,7 +354,7 @@ const ProductDetails = () => {
       </div>
 
       {/* Properties slide */}
-      <div>
+      <div className="mb-10">
         <PopularProductSlider data={popularProperties} />
       </div>
     </div>

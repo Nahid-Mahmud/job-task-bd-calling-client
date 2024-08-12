@@ -7,6 +7,7 @@ import SearchPage from "../components/Search/SearchPage";
 import SearchResultPage from "../components/SearchResult/SearchResultPage";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ErrorPage from "../components/shared/ErrorPage";
+import SignUp from "../components/signup/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path: "/signIn",
         element: <SignIn />,
+      },
+      {
+        path: "/signUp",
+        element: <SignUp />,
       },
       {
         path: "/search",

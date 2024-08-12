@@ -39,14 +39,18 @@ const MinMaxSlider = () => {
         max={999}
         values={values}
         onChange={(values) => setValues(values)}
-        renderTrack={({ props, children }) => (
-          <div {...props} style={{ ...props.style }} className="h-6 bg-orange-100 rounded-md">
-            {children}
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div {...props} style={{ ...props.style }} className="w-6 h-6 bg-blue-500 rounded-full focus:outline-none" />
-        )}
+        renderTrack={({ props, children }) => {
+          const { key, ...restProps } = props;
+          return (
+            <div key={key} {...restProps} className="h-6 bg-orange-100 rounded-md">
+              {children}
+            </div>
+          );
+        }}
+        renderThumb={({ props }) => {
+          const { key, ...restProps } = props;
+          return <div key={key} {...restProps} className="w-6 h-6 bg-blue-500 rounded-full focus:outline-none" />;
+        }}
       />
 
       <div className="flex justify-between mt-4 text-sm text-gray-600">
