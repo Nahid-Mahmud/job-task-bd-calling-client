@@ -34,7 +34,6 @@ const Signup = () => {
     event.preventDefault();
 
     const { name, email, password, confirmPassword } = inputFields;
-    
 
     // Add registration logic here
 
@@ -167,19 +166,16 @@ const Signup = () => {
               )
             }
           </div>
-          <button
-           
-            className="relative bg-white w-full disabled:text-slate-400  mx-auto flex items-center justify-center  gap-3 text-xl border-2 border-[#3e3e3e] transition-all duration-200 hover:scale-95 rounded-lg text-black px-6 py-3 hover:border-[#3d8ec7] cursor-pointer"
-          >
+          <button className="relative bg-white w-full disabled:text-slate-400  mx-auto flex items-center justify-center  gap-3 text-xl border-2 border-[#3e3e3e] transition-all duration-200 hover:scale-95 rounded-lg text-black px-6 py-3 hover:border-[#3d8ec7] cursor-pointer">
             {userLoading ? <div className="absolute left-32 top-[0.95rem]">{/* <Spinner /> */}</div> : null}
             <span> Signup</span>
           </button>
         </form>
         {/* <SigninWithGoogle toastMessage={"Signup successfull"}>Signup With Google</SigninWithGoogle> */}
         <p className="text-xs text-center sm:px-6 dark:text-gray-600">
-          Already have an account?
-          <Link rel="noopener noreferrer" to={"/login"} className="underline dark:text-gray-800">
-            Login
+          Already have an account?{" "}
+          <Link rel="noopener noreferrer" to={"/signIn"} className="underline dark:text-gray-800">
+            Sign In
           </Link>
         </p>
       </div>
