@@ -53,9 +53,9 @@ const SearchResultPage = () => {
             <div className="flex gap-4 items-center flex-col justify-between">
               <div className="flex items-center justify-between w-full">
                 <h1 className="font-semibold text-black text-lg leading-6">Name of the property</h1>
-                <p className="flex items-center gap-2">
+                <div className="flex items-center gap-2">
                   <p className="text-2xl leading-7 font-bold">$3652</p>
-                </p>
+                </div>
               </div>
               <div className="flex items-center justify-between w-full">
                 <div className="flex gap-3">
@@ -126,6 +126,7 @@ const SearchResultPage = () => {
             renderThumb={({ props }) => (
               <div
                 {...props}
+                key={"1"}
                 style={{ ...props.style }}
                 className="w-6 h-6 bg-blue-500 rounded-full focus:outline-none"
               />

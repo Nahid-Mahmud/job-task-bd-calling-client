@@ -6,11 +6,13 @@ import SignIn from "../components/SignIn/SignIn";
 import SearchPage from "../components/Search/SearchPage";
 import SearchResultPage from "../components/SearchResult/SearchResultPage";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
+import ErrorPage from "../components/shared/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

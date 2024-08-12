@@ -7,7 +7,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const PopularProductSlider = ({ data }) => {
   // genarate 1,2,3 randomly
-  console.log(data);
+
   return (
     <Swiper
       modules={[Navigation, Pagination]}

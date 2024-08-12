@@ -12,7 +12,6 @@ const popularProperties = properties?.filter((property) => property?.tag === "Po
 const newProperties = properties?.filter((property) => property?.ageOfConstruction === "New");
 
 const SearchPage = () => {
-  console.log(popularProperties[0]);
   return (
     <div className="">
       {/* image */}

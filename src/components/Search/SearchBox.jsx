@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { CiDollar, CiLocationOn } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
 import { FaLocationPin } from "react-icons/fa6";
 import { RiHomeHeartLine } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
+import { SearchDataContext } from "../../contexts";
 const propertyNames = [
   "Luxury Apartment",
   "Comfort Residency",
@@ -33,12 +35,13 @@ const propertyTypes = ["Apartment", "Villa"];
 const cities = ["Dhaka", "Chattogram", "Sylhet", "Rajshahi", "Dinajpur", "Khulna", "Mymensingh", "Pabna", "Tangail"];
 
 const SearchBox = () => {
-  const [formData, setFormData] = useState({
-    searchQuery: "",
-    location: "",
-    propertyType: "",
-    budget: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   searchQuery: "",
+  //   location: "",
+  //   propertyType: "",
+  //   budget: "",
+  // });
+  const { formData, setFormData } = useContext(SearchDataContext);
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -85,7 +88,11 @@ const SearchBox = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    navigate("/searchResult");
   };
+
+  // navigate
+  const navigate = useNavigate();
 
   return (
     <div className="w-[80rem] h- mx-auto shadow-lg p-10 bg-white rounded-md" ref={searchRef}>
@@ -183,9 +190,10 @@ const SearchBox = () => {
             />
           </div>
         </div>
+
         <button
           type="submit"
-          className="w-full md:w-auto py-3 bg-blue-700 rounded  text-white  flex items-center justify-center hover:bg-blue-600 transition-colors"
+          className="w-full px-3  md:w-auto py-3 bg-blue-700 rounded  text-white  flex items-center justify-center hover:bg-blue-600 transition-colors"
         >
           <FaSearch className="mr-2" />
           Find Property
