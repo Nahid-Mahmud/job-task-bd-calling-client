@@ -5,6 +5,7 @@ import About from "../components/About/About";
 import SignIn from "../components/SignIn/SignIn";
 import SearchPage from "../components/Search/SearchPage";
 import SearchResultPage from "../components/SearchResult/SearchResultPage";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/searchResult",
         element: <SearchResultPage />,
+      },
+      {
+        path: "/product/:id",
+        element: <ProductDetails />,
       },
     ],
   },
