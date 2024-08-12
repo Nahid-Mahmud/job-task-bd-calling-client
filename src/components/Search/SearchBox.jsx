@@ -54,7 +54,7 @@ const SearchBox = () => {
       [name]: value,
     }));
 
-    if (name === "searchQuery") {
+    if (name === "name") {
       const filteredSuggestions = propertyNames.filter((property) =>
         property.toLowerCase().includes(value.toLowerCase())
       );
@@ -66,7 +66,7 @@ const SearchBox = () => {
   const handleSuggestionClick = (suggestion) => {
     setFormData((prevData) => ({
       ...prevData,
-      searchQuery: suggestion,
+      name: suggestion,
     }));
     setSuggestions([]);
     setIsDropdownOpen(false);
@@ -106,10 +106,11 @@ const SearchBox = () => {
       <form onSubmit={handleSubmit} className="flex flex-col relative">
         <input
           type="text"
-          name="searchQuery"
+          name="name"
           placeholder="Search Properties"
-          value={formData?.searchQuery}
+          value={formData?.name}
           onChange={handleChange}
+          required={true}
           className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-12"
         />
 
@@ -140,6 +141,7 @@ const SearchBox = () => {
             <select
               name="location"
               value={formData?.location}
+              required={true}
               onChange={handleChange}
               className="w-full  p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-blue-100 h-16"
             >
@@ -162,6 +164,7 @@ const SearchBox = () => {
               <span>Property Type</span>
             </label>
             <select
+              required={true}
               name="propertyType"
               value={formData?.propertyType}
               onChange={handleChange}
@@ -181,6 +184,7 @@ const SearchBox = () => {
               <span>Budget</span>
             </label>
             <input
+              required={true}
               type="number"
               name="budget"
               placeholder="Budget 100k-999k"

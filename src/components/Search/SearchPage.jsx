@@ -10,6 +10,7 @@ const popularProperties = properties?.filter((property) => property?.tag === "Po
 
 // ageOfConstruction
 const newProperties = properties?.filter((property) => property?.ageOfConstruction === "New");
+console.log(properties);
 
 const SearchPage = () => {
   return (

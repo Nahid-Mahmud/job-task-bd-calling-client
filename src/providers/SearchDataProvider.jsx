@@ -3,7 +3,7 @@ import { SearchDataContext } from "../contexts";
 
 const SearchDataProvider = ({ children }) => {
   const [formData, setFormData] = useState({
-    searchQuery: "",
+    name: "",
     location: "",
     propertyType: "",
     budget: "",
