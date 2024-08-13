@@ -13,7 +13,7 @@ const MainLayout = () => {
     const handleAllResourcesLoaded = () => {
       timeoutId = setTimeout(() => {
         setLoading(false);
-      }, 500); // 0.5-second delay
+      }, 1000); 
     };
 
     if (document.readyState === "complete") {
