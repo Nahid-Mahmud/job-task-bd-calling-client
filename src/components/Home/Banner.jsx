@@ -27,19 +27,21 @@ const Banner = () => {
           Seamlessly connecting you to the heartbear of India &apos;s prime properties
         </p>
         <Link to={"/search"}>
-          <motion.button
-            whileTap={{ scale: 0.5 }}
-            whileHover={{
-              scale: 1.1,
-              transition: {
-                yoyo: Infinity,
-              },
-            }}
-            className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  "
-          >
-            <FaSearch className="h-6 w-6" />
-            <span className="text-lg font-medium">Find Property</span>
-          </motion.button>
+          <div>
+            <motion.button
+              whileTap={{ scale: 0.5 }}
+              whileHover={{
+                scale: 1.05,
+                transition: {
+                  yoyo: Infinity,
+                },
+              }}
+              className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  "
+            >
+              <FaSearch className="h-6 w-6" />
+              <span className="text-lg font-medium">Find Property</span>
+            </motion.button>
+          </div>
         </Link>
       </motion.div>
     </div>

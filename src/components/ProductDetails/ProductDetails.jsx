@@ -19,6 +19,8 @@ import { properties } from "../../data/Propertydata";
 import { useParams } from "react-router-dom";
 import { usePublicApi } from "../../hooks/usePublicApi";
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 const images = [
   "https://images.unsplash.com/photo-1558036117-15d82a90b9b1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "https://images.unsplash.com/photo-1560184897-ae75f418493e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -55,8 +57,23 @@ const features = [
 
 const ProductDetails = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const { user } = useAuth();
   const api = usePublicApi();
   const { id } = useParams();
+
+  const handleBidProberty = () => {
+    if (!user) {
+      toast?.error("Login to participate.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } else {
+      toast?.success("Bid placed successfully.", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    }
+  };
 
   // get product details
 
@@ -182,7 +199,10 @@ const ProductDetails = () => {
             <p className="text-base text-[#6B7280]">Your bid can not be more than 10% of the property maximum value</p>
             <MinMaxSlider />
             <div className="w-full flex items-center justify-center">
-              <button className="text-lg leading-7 font-semibold text-white mb-6 bg-blue-500 hover:bg-blue-600 rounded-md  px-3 py-2">
+              <button
+                onClick={handleBidProberty}
+                className="text-lg leading-7 font-semibold text-white mb-6 bg-blue-500 hover:bg-blue-600 rounded-md  px-3 py-2"
+              >
                 Bid Property
               </button>
             </div>

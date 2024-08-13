@@ -3,14 +3,14 @@ import { FaLocationDot, FaSquarePollHorizontal, FaVectorSquare } from "react-ico
 import Testimonials from "../About/Testimonials";
 import { Range } from "react-range";
 import useSearchResultsLoader from "../../hooks/useSearchResultLoader";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const SearchResultPage = () => {
   // state for selected property
   const [selectedProperty, setSelectedProperty] = useState("searchResult");
   const [values, setValues] = useState([100]);
-
+  const navigate = useNavigate();
   const { data: productsData, isLoading, error } = useSearchResultsLoader();
 
   const newProjectsArray = productsData?.data?.filter((product) => product?.ageOfConstruction === "New");
@@ -99,6 +99,7 @@ const SearchResultPage = () => {
               const random = Math.floor(Math.random() * 3);
               return (
                 <motion.div
+                  onClick={() => navigate(`/product/${product?._id}`)}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
@@ -107,7 +108,7 @@ const SearchResultPage = () => {
                   }}
                   whileHover={{ scale: 1.05 }}
                   key={product?._id}
-                  className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md"
+                  className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md cursor-pointer"
                 >
                   <img className="h-44 w-36" src={product?.images[random]} alt="" />
                   <div className="w-full">
@@ -177,6 +178,7 @@ const SearchResultPage = () => {
               const random = Math.floor(Math.random() * 3);
               return (
                 <motion.div
+                  onClick={() => navigate(`/product/${product?._id}`)}
                   initial={{ opacity: 0, y: 100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
@@ -185,7 +187,7 @@ const SearchResultPage = () => {
                   }}
                   whileHover={{ scale: 1.05 }}
                   key={product?._id}
-                  className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md"
+                  className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md cursor-pointer"
                 >
                   <img className="h-44 w-36" src={product?.images[random]} alt="" />
                   <div className="w-full">
