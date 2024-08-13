@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import BuyingSolutionsPictureSection from "./BuyingSolutionsPictureSection";
 import BuyingSolutionMid from "./BuyingSolutionMid";
 import OtherServices from "./OtherServices";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
