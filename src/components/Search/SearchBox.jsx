@@ -96,7 +96,12 @@ const SearchBox = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-[80rem] h- mx-auto shadow-lg p-10 bg-white rounded-md" ref={searchRef}>
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+      className="w-[80rem] h- mx-auto shadow-lg p-10 bg-white rounded-md"
+      ref={searchRef}
+    >
       <div className="flex border-b-blue-50 border-b my-10 gap-10 p-1">
         <p className="text-base leading-4 font-medium text-blue-500 underline">Buy</p>
         <p className="text-base leading-4 font-medium text-[#4B5563]">Rent</p>
@@ -211,7 +216,7 @@ const SearchBox = () => {
           Find Property
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

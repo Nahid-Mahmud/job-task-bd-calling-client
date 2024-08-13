@@ -2,15 +2,9 @@ import SearchImage from "../../assets/search.jpg";
 import SearchBox from "./SearchBox";
 import AnalyticsSection from "../shared/AnalyticsSection";
 import Testimonials from "../About/Testimonials";
-import { properties } from "../../data/Propertydata";
 import PopularProductSlider from "./PopularProductSlider";
 import useGetProductByTagOrAge from "../../hooks/useGetProductByTagOrAge";
-
-// filter popular properties
-// const popularProperties = properties?.filter((property) => property?.tag === "Popular");
-
-// // ageOfConstruction
-// const newProperties = properties?.filter((property) => property?.ageOfConstruction === "New");
+import { motion } from "framer-motion";
 
 const SearchPage = () => {
   const { data: popularProperties } = useGetProductByTagOrAge("Popular");
@@ -25,22 +19,32 @@ const SearchPage = () => {
           <SearchBox />
         </div>
       </div>
-      <div>
+      <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
         <AnalyticsSection />
-      </div>
+      </motion.div>
       {/* Popular Properties */}
 
-      <div className="container mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="container mx-auto"
+      >
         <p className="font-semibold text-4xl leading-10 text-black my-10">Popular Properties </p>
 
         <PopularProductSlider data={popularProperties?.data} />
-      </div>
+      </motion.div>
 
-      <div className="container mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="container mx-auto"
+      >
         <p className="font-semibold text-4xl leading-10 text-black my-10">New Listed Properties </p>
 
         <PopularProductSlider data={newProperties?.data} />
-      </div>
+      </motion.div>
 
       {/* testimonials */}
 

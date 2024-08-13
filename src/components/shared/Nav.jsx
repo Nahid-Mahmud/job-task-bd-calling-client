@@ -62,29 +62,24 @@ const Nav = () => {
         </div>
 
         <div className="flex gap-5 items-center">
-          <div className="hidden lg:inline-block">
-            <CustomNavLink path="/manage-rentals">Manage Rentals</CustomNavLink>
-          </div>
+          <div className="hidden lg:inline-block">Manage Rentals</div>
 
           {user && (
             <div ref={profileRef} className="relative">
               {user?.photoURL ? (
-                <motion.button
-                  whileTap={{ scale: 0.5 }}
-                  whileHover={{
-                    scale: 1.2,
-                    transition: {
-                      yoyo: Infinity,
-                    },
-                  }}
-                >
-                  <img
-                    src={user?.photoURL}
-                    className="cursor-pointer rounded-full h-10 w-10"
-                    alt=""
-                    onClick={toggleDropdown}
-                  />
-                </motion.button>
+                <div onClick={toggleDropdown}>
+                  <motion.button
+                    whileTap={{ scale: 0.5 }}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: {
+                        yoyo: Infinity,
+                      },
+                    }}
+                  >
+                    <img src={user?.photoURL} className="cursor-pointer rounded-full h-10 w-10" alt="" />
+                  </motion.button>
+                </div>
               ) : (
                 <motion.button
                   whileTap={{ scale: 0.5 }}
@@ -156,11 +151,7 @@ const Nav = () => {
                   Contact
                 </CustomNavLink>
               </li>
-              <li>
-                <CustomNavLink path="/manage-rentals" onClick={toggleSidebar}>
-                  Manage Rentals
-                </CustomNavLink>
-              </li>
+              <li>Manage Rentals</li>
 
               <li>
                 <CustomNavLink path="/signIn" onClick={toggleSidebar}>
