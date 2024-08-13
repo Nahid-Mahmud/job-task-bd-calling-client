@@ -10,9 +10,15 @@ const Home = () => {
       <Banner />
       {/* bying solutions section */}
       <div className="container mx-auto">
-        <BuyingSolutionsPictureSection />
-        <BuyingSolutionMid />
-        <BuyingSolutionsPictureSection />
+        <div>
+          <BuyingSolutionsPictureSection />
+        </div>
+        <div>
+          <BuyingSolutionMid />
+        </div>
+        <div>
+          <BuyingSolutionsPictureSection />
+        </div>
         <div className="mt-80 mb-20">
           <OtherServices />
         </div>

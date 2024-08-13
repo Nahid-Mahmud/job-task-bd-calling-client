@@ -2,6 +2,7 @@ import { IoEyeOff } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { toast } from "react-toastify";
 import Spinner from "../shared/spinner/Spinner";
@@ -110,7 +111,11 @@ const Signup = () => {
   };
 
   return (
-    <div className="h-screen items-center pt-20 w-full mx-auto flex flex-wrap justify-center gap-10">
+    <motion.div
+      initial={{ opacity: 0, x: "100vh" }}
+      whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+      className=" items-center pt-20 w-full mx-auto mb-16 flex flex-wrap justify-center gap-10"
+    >
       <div className="w-full border max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
         <p className="text-2xl font-light">Signup to Charon Bazar!</p>
         <form onSubmit={handleSignup} className="space-y-6">
@@ -227,7 +232,7 @@ const Signup = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

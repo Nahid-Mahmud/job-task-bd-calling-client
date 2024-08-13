@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CiDollar, CiLocationOn } from "react-icons/ci";
 import { FaSearch } from "react-icons/fa";
-import { FaLocationPin } from "react-icons/fa6";
 import { RiHomeHeartLine } from "react-icons/ri";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SearchDataContext } from "../../contexts";
+import { motion } from "framer-motion";
+
 const propertyNames = [
   "Luxury Apartment",
   "Comfort Residency",
@@ -117,13 +118,20 @@ const SearchBox = () => {
         {isDropdownOpen && suggestions.length > 0 && (
           <ul className="absolute z-10 top-20 bg-white border border-gray-300 rounded-lg mt-1 w-full  max-h-60 overflow-y-auto">
             {suggestions.map((suggestion, index) => (
-              <li
+              <motion.li
+                initial={{ opacity: 0 }}
+                whileInView={{
+                  opacity: 1,
+                  transition: {
+                    duration: 1,
+                  },
+                }}
                 key={index}
                 className="p-2 cursor-pointer hover:bg-gray-200"
                 onClick={() => handleSuggestionClick(suggestion)}
               >
                 {suggestion}
-              </li>
+              </motion.li>
             ))}
           </ul>
         )}

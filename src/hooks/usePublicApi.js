@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Ensure the environment variable is correctly prefixed with VITE_
-const apiUrl = "http://localhost:4000";
+const apiUrl = "https://job-task-bd-calling-server.vercel.app";
 
 if (!apiUrl) {
   console.error("API base URL is not defined. Please check your .env file.");

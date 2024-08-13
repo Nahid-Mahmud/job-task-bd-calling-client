@@ -33,7 +33,7 @@ const BuyingSolutionMid = () => {
             </p>
           </div>
           <Link to={"/search"}>
-            <button className=" bg-blue-50 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
+            <button className=" bg-blue-50 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  hover:scale-110 transition-all">
               <FaSearch className="h-6 w-6" />
               <span className="text-lg ">Find Property</span>
             </button>

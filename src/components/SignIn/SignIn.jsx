@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Spinner from "../shared/spinner/Spinner";
 import useAuth from "../../hooks/useAuth";
 import SigninWithGoogle from "../shared/SignInWithGoogle";
+import { motion } from "framer-motion";
 
 const SignIn = () => {
   // state for showing password
@@ -65,7 +66,11 @@ const SignIn = () => {
   };
 
   return (
-    <div className=" my-20 items-center flex flex-wrap flex-row-reverse justify-center gap-10">
+    <motion.div
+      initial={{ opacity: 0, x: "-100vh" }}
+      whileInView={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+      className=" my-20 items-center flex flex-wrap flex-row-reverse justify-center gap-10"
+    >
       {/* lttie animation */}
       <div className="w-full  border  max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
         {/* <h1 className="text-2xl font-bold text-center">Login</h1> */}
@@ -144,7 +149,7 @@ const SignIn = () => {
           </Link>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

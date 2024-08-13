@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import BannerImage from "../../assets/banner.jpeg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
@@ -22,10 +23,19 @@ const Banner = () => {
           Seamlessly connecting you to the heartbear of India &apos;s prime properties
         </p>
         <Link to={"/search"}>
-          <button className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  ">
+          <motion.button
+            whileTap={{ scale: 0.5 }}
+            whileHover={{
+              scale: 1.1,
+              transition: {
+                yoyo: Infinity,
+              },
+            }}
+            className="bg-blue-600 rounded flex items-center justify-center gap-3 px-4 py-5 mt-8  "
+          >
             <FaSearch className="h-6 w-6" />
             <span className="text-lg font-medium">Find Property</span>
-          </button>
+          </motion.button>
         </Link>
       </div>
     </div>

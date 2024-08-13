@@ -4,6 +4,7 @@ import Testimonials from "../About/Testimonials";
 import { Range } from "react-range";
 import useSearchResultsLoader from "../../hooks/useSearchResultLoader";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SearchResultPage = () => {
   // state for selected property
@@ -22,6 +23,16 @@ const SearchResultPage = () => {
     return <p>Something went wrong: {error.message}</p>;
   }
 
+  if (productsData?.data?.length === 0)
+    return (
+      <div className="w-full h-full flex items-center justify-center flex-col gap-5">
+        <p className="text-2xl">No data found</p>
+        <Link to="/search">
+          <button className="bg-blue-500 text-white px-3 py-2 rounded-md">Go Back</button>
+        </Link>
+      </div>
+    );
+
   // get random number between 0,1,2
 
   return (
@@ -29,30 +40,55 @@ const SearchResultPage = () => {
       {/* Buttons properties , new projects prelaunch offers */}
       <div className="max-w-4xl">
         <div className="flex gap-8 items-start">
-          <button
-            onClick={() => setSelectedProperty("searchResult")}
-            className={`${
-              selectedProperty === "searchResult" ? "bg-blue-600 text-white" : "bg-blue-100"
-            } px-3 py-2 text-lg font-medium leading-6 rounded-md`}
-          >
-            properties ( {productsData?.data?.length} )
-          </button>
-          <button
-            onClick={() => setSelectedProperty("new")}
-            className={`${
-              selectedProperty === "new" ? "bg-blue-600 text-white" : "bg-blue-100"
-            } px-3 py-2 text-lg font-medium leading-6 rounded-md`}
-          >
-            New Projects ({newProjectsArray?.length})
-          </button>
-          <button
-            onClick={() => setSelectedProperty("pre-launch")}
-            className={`${
-              selectedProperty === "pre-launch" ? "bg-blue-600 text-white" : "bg-blue-100"
-            } px-3 py-2 text-lg font-medium leading-6 rounded-md`}
-          >
-            Pre-launch offers
-          </button>
+          <div onClick={() => setSelectedProperty("searchResult")}>
+            <motion.button
+              whileTap={{ scale: 0.5 }}
+              whileHover={{
+                scale: 1.09,
+                transition: {
+                  yoyo: Infinity,
+                },
+              }}
+              className={`${
+                selectedProperty === "searchResult" ? "bg-blue-600 text-white" : "bg-blue-100"
+              } px-3 py-2 text-lg font-medium leading-6 rounded-md`}
+            >
+              properties ( {productsData?.data?.length} )
+            </motion.button>
+          </div>
+          <div onClick={() => setSelectedProperty("new")}>
+            <motion.button
+              whileTap={{ scale: 0.5 }}
+              whileHover={{
+                scale: 1.09,
+                transition: {
+                  yoyo: Infinity,
+                },
+              }}
+              className={`${
+                selectedProperty === "new" ? "bg-blue-600 text-white" : "bg-blue-100"
+              } px-3 py-2 text-lg font-medium leading-6 rounded-md`}
+            >
+              New Projects ({newProjectsArray?.length})
+            </motion.button>
+          </div>
+          <div>
+            <motion.button
+              whileTap={{ scale: 0.5 }}
+              whileHover={{
+                scale: 1.09,
+                transition: {
+                  yoyo: Infinity,
+                },
+              }}
+              onClick={() => setSelectedProperty("pre-launch")}
+              className={`${
+                selectedProperty === "pre-launch" ? "bg-blue-600 text-white" : "bg-blue-100"
+              } px-3 py-2 text-lg font-medium leading-6 rounded-md`}
+            >
+              Pre-launch offers
+            </motion.button>
+          </div>
         </div>
         <hr className="my-16" />
 
@@ -62,7 +98,17 @@ const SearchResultPage = () => {
             productsData?.data?.map((product) => {
               const random = Math.floor(Math.random() * 3);
               return (
-                <div key={product?._id} className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md">
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
+                  viewport={{
+                    once: false,
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  key={product?._id}
+                  className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md"
+                >
                   <img className="h-44 w-36" src={product?.images[random]} alt="" />
                   <div className="w-full">
                     <div className="flex gap-4 items-center flex-col justify-between">
@@ -122,7 +168,7 @@ const SearchResultPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
 
@@ -130,7 +176,17 @@ const SearchResultPage = () => {
             newProjectsArray?.map((product) => {
               const random = Math.floor(Math.random() * 3);
               return (
-                <div key={product?._id} className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md">
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
+                  viewport={{
+                    once: false,
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  key={product?._id}
+                  className="p-10 border gap-5 flex bg-[#F9FAFB] rounded-md"
+                >
                   <img className="h-44 w-36" src={product?.images[random]} alt="" />
                   <div className="w-full">
                     <div className="flex gap-4 items-center flex-col justify-between">
@@ -190,9 +246,15 @@ const SearchResultPage = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
+
+          {selectedProperty === "pre-launch" && (
+            <>
+              <p className="text-3xl text-orange-400">Pre-launch offers are comming soon.</p>
+            </>
+          )}
         </div>
       </div>
 
