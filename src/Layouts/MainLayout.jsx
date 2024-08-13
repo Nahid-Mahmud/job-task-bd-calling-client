@@ -8,42 +8,40 @@ const MainLayout = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Function to check if all resources are loaded
+    let timeoutId;
+
     const handleAllResourcesLoaded = () => {
-      setLoading(false); // Set loading to false when all resources are loaded
+      timeoutId = setTimeout(() => {
+        setLoading(false);
+      }, 500); // 0.5-second delay
     };
 
-    // Check if all resources are loaded initially
     if (document.readyState === "complete") {
       handleAllResourcesLoaded();
     }
 
-    // Event listener for the "load" event of the DOM
     const handleLoad = () => {
       handleAllResourcesLoaded();
     };
 
-    // Add event listener for "load" event
     window.addEventListener("load", handleLoad);
 
-    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener("load", handleLoad);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
     };
   }, []);
 
+  if (loading) return <PreLoader />;
+
   return (
-    <>
-      {loading ? (
-        <PreLoader />
-      ) : (
-        <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
-          <Nav />
-          <Outlet />
-          <Footer />
-        </div>
-      )}
-    </>
+    <div className="grid min-h-[100dvh] grid-rows-[auto_1fr_auto]">
+      <Nav />
+      <Outlet />
+      <Footer />
+    </div>
   );
 };
 
