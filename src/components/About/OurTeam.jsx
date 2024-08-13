@@ -6,8 +6,6 @@ const OurTeam = () => {
         <p className="text-orange-500 font-semibold text-lg leading-5">Our Team</p>
       </div>
       <h2 className="font-bold text-black leading-10 text-[40px] mt-4 mb-10">Discover the Faces Behind Our Success</h2>
-
-      {/* Slider section */}
     </div>
   );
 };

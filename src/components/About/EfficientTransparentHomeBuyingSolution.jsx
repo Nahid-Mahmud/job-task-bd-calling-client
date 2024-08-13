@@ -1,5 +1,6 @@
 import ImageOne from "../../assets/about-home-1.jpg";
 import ImageTwo from "../../assets/about-home-2.jpg";
+import { motion } from "framer-motion";
 
 const EfficientTransparentHomeBuyingSolution = () => {
   return (
@@ -8,7 +9,15 @@ const EfficientTransparentHomeBuyingSolution = () => {
       <div className="mb-20 relative">
         <img src={ImageOne} className="w-[1140px] h-[455px]" alt="Home image" />
         {/* text */}
-        <div className="h-[270px] absolute top-80 right-0 w-[592px] bg-blue-100 p-10">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{
+            visiblePercentage: 50,
+          }}
+          className="h-[270px] absolute top-80 right-0 w-[592px] bg-blue-100 p-10"
+        >
           <div>
             <div className="h-1 w-10 bg-orange-500"></div>
             <p className="text-orange-500 font-semibold text-base leading-6">Our Story</p>
@@ -21,14 +30,19 @@ const EfficientTransparentHomeBuyingSolution = () => {
               In the symphony of bustling markets and serene landscapes , Heritage-Nest was born-a vision to
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* 2nd */}
       <div className="mb-[850px] mt-48 relative">
         <img src={ImageTwo} className="w-[1140px] h-[455px] absolute right-0 " alt="Home image" />
         {/* text */}
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="relative"
+        >
           <div className="h-[270px] top-80 absolute w-[592px] bg-orange-100 p-10">
             <div>
               <div className="h-1 w-10 bg-orange-500"></div>
@@ -43,7 +57,7 @@ const EfficientTransparentHomeBuyingSolution = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* img */}
       </div>
     </div>

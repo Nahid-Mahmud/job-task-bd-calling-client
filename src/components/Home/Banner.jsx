@@ -15,7 +15,11 @@ const Banner = () => {
       <div className="absolute inset-0 bg-gradient-to-b  from-transparent  to-black  "></div>
 
       {/* Centered Text */}
-      <div className="relative text-white text-2xl text-justify flex flex-col items-center justify-center gap-3 md:text-4xl lg:text-5xl  max-w-3xl">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0, transition: { duration: 1.5 } }}
+        className="relative text-white text-2xl text-justify flex flex-col items-center justify-center gap-3 md:text-4xl lg:text-5xl  max-w-3xl"
+      >
         <h1 className="text-2xl md:text-4xl font-bold lg:text-5xl xl:text-6xl">
           Your Portal to India&apos;s Exquisite Real Estate.
         </h1>
@@ -37,7 +41,7 @@ const Banner = () => {
             <span className="text-lg font-medium">Find Property</span>
           </motion.button>
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 };

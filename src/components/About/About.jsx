@@ -5,37 +5,111 @@ import EfficientTransparentHomeBuyingSolution from "./EfficientTransparentHomeBu
 import { ProfileSlider } from "./ProfileSlider";
 import MeetTheTeam from "./MeetTheTeam";
 import Testimonials from "./Testimonials";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{
+        visiblePercentage: 50,
+        once: true,
+      }}
+      className=""
+    >
       {/* Banner Section */}
 
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+      >
         <img className="h-96 w-full" src={Banner} alt="" />
-      </div>
+      </motion.div>
 
       {/* analytics component */}
-
-      <AnalyticsSection />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+      >
+        <AnalyticsSection />
+      </motion.div>
       {/* EfficientTransparent Home buying solutions */}
 
-      <EfficientTransparentHomeBuyingSolution />
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+      >
+        <EfficientTransparentHomeBuyingSolution />{" "}
+      </motion.div>
       {/* our team */}
 
-      <OurTeam />
-      <div>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+      >
+        <OurTeam />
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+      >
         <ProfileSlider />
-      </div>
+      </motion.div>
 
-      <div key={10}>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+        key={10}
+      >
         <MeetTheTeam />
-      </div>
+      </motion.div>
 
-      <div key={20}>
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+        key={20}
+      >
         <Testimonials />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

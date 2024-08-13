@@ -1,4 +1,3 @@
-import React from "react";
 import Banner from "./Banner";
 import BuyingSolutionsPictureSection from "./BuyingSolutionsPictureSection";
 import BuyingSolutionMid from "./BuyingSolutionMid";
@@ -7,24 +6,65 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{
+        visiblePercentage: 50,
+        once: true,
+      }}
+    >
       <Banner />
       {/* bying solutions section */}
       <div className="container mx-auto">
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{
+            visiblePercentage: 50,
+            once: true,
+          }}
+        >
           <BuyingSolutionsPictureSection />
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{
+            visiblePercentage: 50,
+            once: true,
+          }}
+        >
           <BuyingSolutionMid />
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{
+            visiblePercentage: 50,
+            once: true,
+          }}
+        >
           <BuyingSolutionsPictureSection />
-        </div>
-        <div className="mt-80 mb-20">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{
+            visiblePercentage: 50,
+            once: true,
+          }}
+          className="mt-80 mb-20"
+        >
           <OtherServices />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

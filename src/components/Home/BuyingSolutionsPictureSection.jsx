@@ -3,11 +3,17 @@ import ImageOne from "../../assets/pic1.jpg";
 import ImageTwo from "../../assets/pic2.jpg";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const BuyingSolutionsPictureSection = () => {
   return (
     <div className="flex my-32 gap-48 justify-between ">
-      <div className="w-1/2 ">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        className="w-1/2 "
+      >
         <div className="relative">
           <img className="h-[400px] w-[458] rounded-lg" src={ImageOne} alt="image of a room" />
           <img
@@ -21,9 +27,14 @@ const BuyingSolutionsPictureSection = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="w-1/2">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        className="w-1/2"
+      >
         <div className="max-w-7xl">
           <div className="flex items-center justify-start gap-3">
             <div className="h-1 w-10 bg-orange-500"></div>
@@ -43,7 +54,7 @@ const BuyingSolutionsPictureSection = () => {
             </button>
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

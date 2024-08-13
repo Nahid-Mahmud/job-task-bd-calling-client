@@ -3,11 +3,21 @@ import ImageOne from "../../assets/pic1.jpg";
 import ImageTwo from "../../assets/pic3.jpg";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const BuyingSolutionMid = () => {
   return (
     <div className="flex flex-row-reverse mt-52 mb-80 gap-48 justify-between  ">
-      <div className="flex-1 ">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+        className="flex-1 "
+      >
         <div className="relative">
           <img src={ImageTwo} className="h-[240px] w-[452px]  ml-36 rounded-lg" alt="image of a room" />
           <img className="h-[300px] w-[458] absolute top-1/2 rounded-lg" src={ImageOne} alt="image of a room" />
@@ -17,9 +27,18 @@ const BuyingSolutionMid = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="w-1/2">
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{
+          visiblePercentage: 50,
+          once: true,
+        }}
+        className="w-1/2"
+      >
         <div className="max-w-7xl">
           <div className="flex items-center justify-start gap-3">
             <div className="h-1 w-10 bg-orange-500"></div>
@@ -39,7 +58,7 @@ const BuyingSolutionMid = () => {
             </button>
           </Link>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
