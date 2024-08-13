@@ -63,7 +63,7 @@ const ProductDetails = () => {
 
   const handleBidProberty = () => {
     if (!user) {
-      toast?.error("Login to participate.", {
+      toast?.error("Sign In to participate.", {
         position: "top-right",
         autoClose: 3000,
       });
